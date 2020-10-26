@@ -96,7 +96,7 @@ const PieChart = ({
             totalInput={dataCollection.length}
           />
         ))}
-        {/* //* This will return Scale
+        {/* //
          */}
         <Group x={(width / 3) * 2} y={(height * 2) / 3} width={width / 3}>
           {dataCollection.map((item, idx) => (

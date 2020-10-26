@@ -72,17 +72,12 @@ const PieChart = ({
             // set minimal value
             // width: Math.max(50, node.width() * scaleX),
             // height: Math.max(node.height() * scaleY),
-            /*// ! instead of reseting it back and enlarging it to the dragged size..
-             //! just make the dragged size remain 
-             */
+            // ! instead of reseting it back and enlarging it to the dragged size.. just make the dragged size remain
             width: Math.max(50, node.width()),
             height: Math.max(node.height()),
           });
         }}
       >
-        {
-          //* this will return a piechart  */
-        }
         {dataCollection.map((item, idx) => (
           <Pie
             key={idx}
@@ -96,8 +91,6 @@ const PieChart = ({
             totalInput={dataCollection.length}
           />
         ))}
-        {/* //* This will return Scale
-         */}
         <Group x={(width / 3) * 2} y={(height * 2) / 3} width={width / 3}>
           {dataCollection.map((item, idx) => (
             <Scale

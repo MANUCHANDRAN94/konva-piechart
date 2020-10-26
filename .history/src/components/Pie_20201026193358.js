@@ -22,8 +22,6 @@ const Pie = ({
   const onMouseOut = (e) => {
     setClick({
       didHover: false,
-      x: null,
-      y: null,
     });
   };
   // console.log("e.target")
@@ -56,10 +54,10 @@ const Pie = ({
       {hover.didHover && (
         <Text
           text={Math.trunc((10000 / total) * data.value) / 100}
-          x={hover.x}
-          y={hover.y}
-          strokeColor='black'
-          fontSize={36}
+          x={0}
+          y={50}
+          fill='#333'
+          fontSize={16}
           fontFamily='Arial'
         />
       )}

@@ -12,19 +12,14 @@ const Pie = ({
 }) => {
   const [hover, setClick] = useState({ didHover: false, pos: {} });
   const onMouseOver = (e) => {
-    console.log(e.target.getStage().getPointerPosition().x);
+    console.log(e.target.getStage().getPointerPosition());
     setClick({
-      didHover: true,
-      x: e.target.getStage().getPointerPosition().x,
-      y: e.target.getStage().getPointerPosition().y,
+        didHover:true,
+        e.target.getStage().getPointerPosition()
     });
   };
   const onMouseOut = (e) => {
-    setClick({
-      didHover: false,
-      x: null,
-      y: null,
-    });
+    setClick(hover.didHover);
   };
   // console.log("e.target")
 
@@ -56,10 +51,10 @@ const Pie = ({
       {hover.didHover && (
         <Text
           text={Math.trunc((10000 / total) * data.value) / 100}
-          x={hover.x}
-          y={hover.y}
-          strokeColor='black'
-          fontSize={36}
+          x={0}
+          y={50}
+          fill='#333'
+          fontSize={16}
           fontFamily='Arial'
         />
       )}

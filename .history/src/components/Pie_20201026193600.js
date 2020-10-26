@@ -15,8 +15,8 @@ const Pie = ({
     console.log(e.target.getStage().getPointerPosition().x);
     setClick({
       didHover: true,
-      x: e.target.getStage().getPointerPosition().x,
-      y: e.target.getStage().getPointerPosition().y,
+      x: e.target.getStage().getPointerPosition().x - 100,
+      y: e.target.getStage().getPointerPosition().y - 100,
     });
   };
   const onMouseOut = (e) => {
@@ -58,8 +58,8 @@ const Pie = ({
           text={Math.trunc((10000 / total) * data.value) / 100}
           x={hover.x}
           y={hover.y}
-          strokeColor='black'
-          fontSize={36}
+          fill='#333'
+          fontSize={16}
           fontFamily='Arial'
         />
       )}

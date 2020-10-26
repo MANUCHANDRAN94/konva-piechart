@@ -27,8 +27,6 @@ const PieChart = ({
     }
   };
 
-  /*//? ----------------------------- React hooks ---------------------------- */
-
   const shapeRef = React.useRef();
   const trRef = React.useRef();
   React.useEffect(() => {
@@ -38,7 +36,6 @@ const PieChart = ({
       trRef.current.getLayer().batchDraw();
     }
   }, [isSelected]);
-  /* -------------------------------------------------------------------------- */
 
   return (
     <Fragment>
@@ -60,29 +57,21 @@ const PieChart = ({
         }}
         onTransformEnd={(e) => {
           const node = shapeRef.current;
-          //   const scaleX = node.scaleX();
-          //   const scaleY = node.scaleY();
+          const scaleX = node.scaleX();
+          const scaleY = node.scaleY();
           // we will reset it back
-          //   node.scaleX(1);
-          //   node.scaleY(1);
+          node.scaleX(1);
+          node.scaleY(1);
           onChange({
             ...groupValue,
             x: node.x(),
             y: node.y(),
             // set minimal value
-            // width: Math.max(50, node.width() * scaleX),
-            // height: Math.max(node.height() * scaleY),
-            /*// ! instead of reseting it back and enlarging it to the dragged size..
-             //! just make the dragged size remain 
-             */
-            width: Math.max(50, node.width()),
-            height: Math.max(node.height()),
+            width: Math.max(5, node.width() * scaleX),
+            height: Math.max(node.height() * scaleY),
           });
         }}
       >
-        {
-          //* this will return a piechart  */
-        }
         {dataCollection.map((item, idx) => (
           <Pie
             key={idx}
@@ -96,8 +85,6 @@ const PieChart = ({
             totalInput={dataCollection.length}
           />
         ))}
-        {/* //* This will return Scale
-         */}
         <Group x={(width / 3) * 2} y={(height * 2) / 3} width={width / 3}>
           {dataCollection.map((item, idx) => (
             <Scale

@@ -16,7 +16,7 @@ const Scale = ({ idx, width, height, radius, data, totalInput }) => {
       <Text
         text={data.product.slice(0, 1).toUpperCase() + data.product.slice(1)}
         x={width / 5 + width / 8}
-        y={idx * (height / 3 / totalInput)}
+        y={idx * (height / totalInput)}
         fontSize={radius / 10}
       />
     </Fragment>

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Layer, Stage, Text } from "react-konva";
-import PieGroup from "./components/PieGroup";
+import React, { useEffect, useState } from 'react';
+import { Layer, Stage, Text } from 'react-konva';
+import PieGroup from './components/PieGroup';
 
 /* ----------------------------- Initial values ----------------------------- */
 // todo : make this a array of objects lateron
@@ -11,49 +11,27 @@ const initialValues = {
   height: 400,
   width: 400,
   dataCollection: [
-    {
-      product: "apple",
-      value: 120,
-      color: "red",
-      strokeColor: "white",
-      strokeWidth: 2,
-    },
-    {
-      product: "mango",
-      value: 140,
-      color: "yellow",
-      strokeColor: "white",
-      strokeWidth: 2,
-    },
-    {
-      product: "guvava",
-      value: 130,
-      color: "green",
-      strokeColor: "white",
-      strokeWidth: 2,
-    },
-    {
-      product: "grape",
-      value: 100,
-      color: "blue",
-      strokeColor: "white",
-      strokeWidth: 2,
-    },
-  ],
-};
+    { product: "apple", value: 120, color: "red", strokeColor: "white", strokeWidth: 2 },
+    { product: "mango", value: 140, color: "yellow", strokeColor: "white", strokeWidth: 2 },
+    { product: "guvava", value: 130, color: "green", strokeColor: "white", strokeWidth: 2 },
+    { product: "grape", value: 100, color: "blue", strokeColor: "white", strokeWidth: 2 },
+  ]
+}
 
 function App() {
+
   /* ------------------------- Usestate and UseEffcet ------------------------- */
   const [graphDetails, setGraphDetails] = useState(initialValues);
   const [selectedId, selectShape] = useState(null);
 
   useEffect(() => {
-    setGraphDetails((preValue) => {
+    setGraphDetails(preValue => {
       return {
-        ...initialValues,
-      };
-    });
-  }, []);
+        ...initialValues
+      }
+    })
+  }, [])
+
   /* -------------------------------------------------------------------------- */
 
   /* ----------------------------- Other Functions ---------------------------- */
@@ -66,27 +44,12 @@ function App() {
   /* -------------------------------------------------------------------------- */
 
   return (
-    <div className='pieChartContainer'>
-      <Stage
-        x={0}
-        y={0}
-        width={window.innerWidth}
-        height={window.innerHeight}
-        onMouseDown={checkDeselect}
-        onTouchStart={checkDeselect}
-      >
+    <div className="pieChartContainer">
+      <Stage x={0} y={0} width={window.innerWidth} height={window.innerHeight} onMouseDown={checkDeselect} onTouchStart={checkDeselect}>
         <Layer>
-          <Text
-            x={10}
-            width={window.innerWidth - 200}
-            align='center'
-            text='Pie Chart'
-            stroke='black'
-            fontSize={36}
-          />
+          <Text x={10} width={(window.innerWidth - 200)} align="center" text="Pie Chart" stroke="black" fontSize={36} />
           {/* Make this a map function */}
-          <PieGroup
-            groupValue={graphDetails}
+          <PieGroup groupValue={graphDetails}
             isSelected={graphDetails.id === selectedId}
             onSelect={() => {
               selectShape(graphDetails.id);
