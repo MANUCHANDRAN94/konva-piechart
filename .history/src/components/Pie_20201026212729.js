@@ -56,8 +56,8 @@ const Pie = ({
       {hover.didHover && (
         <Text
           text={Math.trunc((10000 / total) * data.value) / 100}
-          x={hover.x || 10}
-          y={hover.y || 20}
+          x={hover.x}
+          y={hover.y}
           strokeColor='black'
           fontSize={36}
           fontFamily='Arial'
